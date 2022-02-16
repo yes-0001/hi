@@ -60,7 +60,7 @@ if game.PlaceId == 3233893879 then
 end
 
 if game.PlaceId == 5326405001 then
-    loadstring(game:HttpGet(('https://pastebin.com/ra   w/2YhjQcMf'), true))() -- Base Battles
+    loadstring(game:HttpGet(('https://pastebin.com/raw/2YhjQcMf'), true))() -- Base Battles
     return
 end
 
@@ -76,11 +76,6 @@ end
 
 if game.PlaceId == 2551991523 then
     loadstring(game:HttpGet(('https://pastebin.com/raw/b2ZF7Lnx'), true))() -- Broken Bones IV
-    return
-end
-
-if game.PlaceId == 6824046084 then
-    loadstring(game:HttpGet(('https://pastebin.com/raw/w7W9P3CC'), true))() -- Silly's Difficulty Chart Obby
     return
 end
 
@@ -131,13 +126,13 @@ if game.PlaceId == 6483072762 then
     return
 end
 
-if game.PlaceId == 142823291 then
-    loadstring(game:HttpGet(('https://pastebin.com/raw/zptZiMkD'), true))() -- Murder Mystery 2
+if game.PlaceId == 370731277 then
+    loadstring(game:HttpGet(('https://pastebin.com/raw/g39rt5dR'), true))() -- Meepcity
     return
 end
 
-if game.PlaceId == 370731277 then
-    loadstring(game:HttpGet(('https://pastebin.com/raw/g39rt5dR'), true))() -- Meepcity
+if game.PlaceId == 142823291 then
+    loadstring(game:HttpGet(('https://pastebin.com/raw/zptZiMkD'), true))() -- Murder Mystery 2
     return
 end
 
@@ -171,6 +166,11 @@ if game.PlaceId == 7686955826 or 8650964641 then
     return
 end
 
+if game.PlaceId == 6824046084 then
+    loadstring(game:HttpGet(('https://pastebin.com/raw/w7W9P3CC'), true))() -- Silly's Difficulty Chart Obby
+    return
+end
+
 if game.PlaceId == 1962086868 then
     loadstring(game:HttpGet(('https://pastebin.com/raw/uEimAKW5'), true))() -- Tower Of Hell
     return
@@ -187,7 +187,7 @@ if game.PlaceId == 3297964905 then
 end
 
 if game.PlaceId == 2377868063 then
-    loadstring(game:HttpGet(('https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/ZoneWars_STRUCID'), true))() -- Strucid Zone Wars
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/Strucid'), true))() -- Strucid
     return
 end
 

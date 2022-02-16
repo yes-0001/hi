@@ -424,7 +424,7 @@ end)
 
 e:Button("Activate Dark Hub",function()
     if selected1 then
-        loadstring(game:HttpGet("https://pastebin.com/raw/teBtj8DG", true))() -- Regular Strucid
+        loadstring(game:HttpGet("https://pastebin.com/raw/ZmsmGr84", true))() -- Regular Strucid
     else
         loadstring(game:HttpGet("https://pastebin.com/raw/nTjPrEU6", true))() -- Zone Wars
     end
