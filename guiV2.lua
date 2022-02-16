@@ -1,5 +1,5 @@
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/NewUI"))()
-local freecam = loadstring(game:HttpGet('https://pastebin.com/raw/yD0uXTQb', true))()
+local freecam = loadstring(game:HttpGet('https://raw.githubusercontent.com/yes-0001/hi/main/hehe/freecam.lua', true))()
 
 -- https://x.synapse.to/docs/reference/misc.html
 
@@ -391,7 +391,7 @@ d:Label(" ")
 d:Label("Phantom Forces")
 
 d:Button("Activate 1",function()
-    loadstring(game:HttpGet('https://pastebin.com/raw/8KHFpex7', true))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/yes-0001/hi/main/noob/PhantomForcesCatGirl.lua', true))()
 end)
 
 d:Button("Activate 2",function()
@@ -409,7 +409,7 @@ d:Label(" ")
 d:Label("The Wild West")
 
 d:Button("Activate",function()
-    loadstring(game:HttpGet('https://pastebin.com/raw/e6zvw8mH', true))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/yes-0001/hi/main/noob/TheWildWest.lua', true))()
 end)
 
 ------------------------------------------------------------------------
@@ -424,9 +424,9 @@ end)
 
 e:Button("Activate Dark Hub",function()
     if selected1 then
-        loadstring(game:HttpGet("https://pastebin.com/raw/ZmsmGr84", true))() -- Regular Strucid
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/noob/a2.lua", true))() -- Regular Strucid
     else
-        loadstring(game:HttpGet("https://pastebin.com/raw/nTjPrEU6", true))() -- Zone Wars
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/noob/a.lua", true))() -- Zone Wars
     end
 
     -- make a choice to do Strucid or Strucid Zone Wars
@@ -466,7 +466,7 @@ e:Button("Activate Dark Hub",function()
 end)
 
 e:Button("Activate Luk Hub",function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/whpE9JkU"))();
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/noob/LukHub.lua"))();
 
     -- Supported Games (this gui is pretty outdated so use at your own risk)
     -- Galaxy
