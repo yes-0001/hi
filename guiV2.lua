@@ -1,11 +1,11 @@
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/NewUI"))()
 local freecam = loadstring(game:HttpGet('https://raw.githubusercontent.com/yes-0001/hi/main/hehe/freecam.lua', true))()
-local Cinematic = loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/hehe/Cinematic.lua"))();
+-- local Cinematic = loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/hehe/Cinematic.lua"))();
 
 -- https://x.synapse.to/docs/reference/misc.html
 
 -- If any updates come to any of the games in this GUI, I will try my hardest to update them for new bypasses
--- Games I focus on most: Ballistia
+-- Games I focus on most: Ballista
 
 
 ------------------------------------------------------------------------
@@ -229,7 +229,7 @@ if game.PlaceId ~= 292439477 then
         end
 
         if not Part then
-            Part = HumanoidRootPart
+            Part = "HumanoidRootPart"
         end
 
         -- Script
@@ -303,11 +303,11 @@ b:Toggle("Infinite Jump",function(bool)
     end)
 end)
 
-b:Slider("Speed", 0, 250,function(num)
+b:Slider("Speed", 0, 200,function(num)
     game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = num
 end)
 
-b:Slider("JumpHeight", 0, 250,function(num)
+b:Slider("JumpHeight", 0, 200,function(num)
     game:GetService("Players").LocalPlayer.Character.Humanoid.JumpPower = num
 end)
 
@@ -448,17 +448,13 @@ end)
 
 d:Label("Ballista")
 
-d:Toggle("Toggle on/off",function(state)
-    Client.Config.Ballista = state
-end)
-
-d:Keybind("hit everyone",Enum.KeyCode.period,function()
+d:Keybind("hit everyone",Enum.KeyCode.KeypadZero,function()
     local me = game.Players.LocalPlayer-- variable
 
     -- only works with archer
     -- make sure you do this for only a short amount of time and in small servers (30 or less) in order to be less likely to get banned
 
-    if Client.Config.Ballista then
+    if game.PlaceId == 6763893674 then
         while true do
             for _,v in pairs(game.Players:GetPlayers()) do
                 if v.Name ~= me and v.Character then
@@ -474,23 +470,22 @@ d:Keybind("hit everyone",Enum.KeyCode.period,function()
     end
 end)
 
-d:Bind("Teleport to Mid",Enum.KeyCode.J,function()
-    if Client.Config.Ballista then
-        plr = game.Players.LocalPlayer
-        hum = plr.Character.HumanoidRootPart
+d:Keybind("Teleport to Mid",Enum.KeyCode.KeypadOne,function()
+    if game.PlaceId == 6763893674 then
+        hum = game.Players.LocalPlayer.Character.HumanoidRootPart
         
-        hum.CFrame = CFrame.new(89.5731735, 5.82997847 - 5, 43.8063927)
+        hum.CFrame = CFrame.new(89.5731735, 1.82997847, 43.8063927)
     end
 end)
 
-d:Label(" ")
+d:Label("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
 d:Label("Decaying Winter")
 
 d:Button("Activate",function()
     loadstring(game:HttpGet(('https://raw.githubusercontent.com/Aidez/decaying_winter/main/GOODWILL_COMMAND_SCRIPT'),true))()
 end)
 
-d:Label(" ")
+d:Label("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
 d:Label("Phantom Forces")
 
 d:Button("Activate 1",function()
@@ -501,14 +496,14 @@ d:Button("Activate 2",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/wally-rblx/phantom-forces-chams/main/main.lua"))()
 end)
 
-d:Label(" ")
+d:Label("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
 d:Label("Stay Alive and Flex Your Time")
 
 d:Button("Activate",function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/wally-rblx/stay-alive-and-flex-time/main/main.lua', true))()
 end)
 
-d:Label(" ")
+d:Label("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -")
 d:Label("The Wild West")
 
 d:Button("Activate",function()
@@ -517,7 +512,7 @@ end)
 
 ------------------------------------------------------------------------
 
-e:Dropdown("a",{"Strucid", "Strucid - Zone Wars"},function(selected)
+e:Dropdown("DarkHub - what strucid version?",{"Strucid", "Strucid - Zone Wars"},function(selected)
     if selected == "Strucid" then
         _G.selected1 = true
     else

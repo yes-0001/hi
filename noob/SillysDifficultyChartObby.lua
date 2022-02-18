@@ -9,8 +9,12 @@ main = lib:Window()
 Mainz = main:Tab('Main')
 
 
+Mainz:Button('GodMode',function(state)
+    game:GetService("Players").LocalPlayer.PlayerScripts.KillBricks:Remove()
+end)
+
 Mainz:Toggle('Auto-Buy',function(state)
-settings.Buy = state
+    settings.Buy = state
 end)
 
   Mainz:Slider('Auto-Complete Delay (seconds)',0,5,function(num)
