@@ -60,7 +60,7 @@ if game.PlaceId == 3233893879 then
 end
 
 if game.PlaceId == 5326405001 then
-    loadstring(game:HttpGet(('https://pastebin.com/ra   w/2YhjQcMf'), true))() -- Base Battles
+    loadstring(game:HttpGet(('https://pastebin.com/raw/2YhjQcMf'), true))() -- Base Battles
     return
 end
 
