@@ -15,6 +15,7 @@ local AllGames = {
     1930509701;
     263761432;
     606849621;
+    621129760;
     3101667897;
     6483072762;
     142823291;
@@ -113,6 +114,11 @@ if game.PlaceId == 606849621 then
     loadstring(game:HttpGet(('https://raw.githubusercontent.com/yes-0001/hi/main/noob/Jailbreak.lua'), true))() -- Jailbreak
     wait(20)
     game:GetService("Workspace").SecretBaseCriminal.Lift:Remove()
+    return
+end
+
+if game.PlaceId == 621129760 then
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/yes-0001/hi/main/noob/KAT.lua'), true))() -- KAT
     return
 end
 
