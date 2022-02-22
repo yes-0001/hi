@@ -41,108 +41,40 @@ local e = a:Tab("Paid Gui's")
 local asdsa = a:Tab("Info")
 
 ------------------------------------------------------------------------
+c:Button("Camera Zoom",function()
+    local camera = workspace.CurrentCamera
+    local tween_service = game:GetService("TweenService")
+    local UserInputService = game:GetService("UserInputService")
 
--- c:Toggle("Cinematic Mode",function(bool)
---     loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/hehe/Cinematic.lua"))();
+    local function Tween_FOV(value, speed)
+        local tween_info = TweenInfo.new(speed, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out)
+        local tween = tween_service:Create(camera, tween_info, {FieldOfView = value})
+        tween:Play()
+    end
 
---     local MACRO_KB = {Enum.KeyCode.LeftShift, Enum.KeyCode.O}
+    local function Tween_SEN(value, speed)
+        local tween_info1 = TweenInfo.new(speed, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out)
+        local tween1 = tween_service:Create(UserInputService, tween_info1, {MouseDeltaSensitivity = value})
+        tween1:Play()
+    end
 
---     local PlayerState = {} do
---     local StarterGui = game:GetService("StarterGui")
---     local screenGuis = {}
---     local coreGuis = {
---         Backpack = true,
---         Chat = true,
---         Health = true,
---         PlayerList = true,
---     }
---     local setCores = {
---         BadgesNotificationsActive = true,
---         PointsNotificationsActive = true,
---     }
-    
---     -- Save state and set up for freecam
---     function PlayerState.Push()
---         for name in pairs(coreGuis) do
---             coreGuis[name] = StarterGui:GetCoreGuiEnabled(Enum.CoreGuiType[name])
---             StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType[name], false)
---         end
---         for name in pairs(setCores) do
---             setCores[name] = StarterGui:GetCore(name)
---             StarterGui:SetCore(name, false)
---         end
---         local playergui = LocalPlayer:FindFirstChildOfClass("PlayerGui")
---         if playergui then
---             for _, gui in pairs(playergui:GetChildren()) do
---                 if gui:IsA("ScreenGui") and gui.Enabled then
---                     screenGuis[#screenGuis + 1] = gui
---                     gui.Enabled = false
---                     game:GetService("CoreGui").ThemeProvider.TopBarFrame.LeftFrame.MenuIcon.Visible = false
---                 end
---             end
---         end
---     end
-    
---     -- Restore state
---     function PlayerState.Pop()
---             for name, isEnabled in pairs(coreGuis) do
---                 StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType[name], isEnabled)
---             end
---             for name, isEnabled in pairs(setCores) do
---                 StarterGui:SetCore(name, isEnabled)
---             end
---             for _, gui in pairs(screenGuis) do
---                 if gui.Parent then
---                     gui.Enabled = true
---                     game:GetService("CoreGui").ThemeProvider.TopBarFrame.LeftFrame.MenuIcon.Visible = true
---                 end
---             end
---         end
---     end
-    
---     local function StartFreecam()
---         PlayerState.Push()
---     end
-    
---     local function StopFreecam()
---         PlayerState.Pop()
---     end
-    
---     ------------------------------------------------------------------------
-    
---     do
---         local enabled = false
-    
---         local function ToggleFreecam()
---             if enabled then
---                 StopFreecam()
---                 else
---                 StartFreecam()
---             end
---             enabled = not enabled
---         end
-    
---         local function CheckMacro(macro)
---             for i = 1, #macro - 1 do
---                 if not UserInputService:IsKeyDown(macro[i]) then
---                 return
---                 end
---             end
---             ToggleFreecam()
---         end
-    
---         local function HandleActivationInput(action, state, input)
---             if state == Enum.UserInputState.Begin then
---                 if input.KeyCode == MACRO_KB[#MACRO_KB] then
---                 CheckMacro(MACRO_KB)
---                 end
---             end
---             return Enum.ContextActionResult.Pass
---         end
-    
---         ContextActionService:BindActionAtPriority("FreecamToggle", HandleActivationInput, false, TOGGLE_INPUT_PRIORITY, FREECAM_MACRO_KB[#FREECAM_MACRO_KB])
---     end
--- end)
+    UserInputService.InputBegan:connect(function(input)
+        if input.KeyCode==Enum.KeyCode.E then
+            Tween_FOV(5, 1.5)
+            Tween_SEN(0.1, 2)
+        end
+    end)
+
+    UserInputService.InputEnded:connect(function(input)
+        if input.KeyCode==Enum.KeyCode.E then
+            Tween_FOV(70, 1.5)
+            Tween_SEN(0.96, 2)
+
+            -- UserInputService.MouseBehavior = originalProperties.MouseBehavior
+            -- UserInputService.MouseDeltaSensitivity = originalProperties.MouseDeltaSensitivity
+        end
+    end)
+end)
 
 c:Label("How to use")
 c:Label("Shift + P to activate")
@@ -775,20 +707,8 @@ end)
 
 ------------------------------------------------------------------------
 
-e:Dropdown("DarkHub - what strucid version?",{"Strucid", "Strucid - Zone Wars"},function(selected)
-    if selected == "Strucid" then
-        _G.selected1 = true
-    else
-        _G.selected1 = false
-    end
-end)
-
 e:Button("Activate Dark Hub",function()
-    if selected1 then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/noob/a2.lua", true))() -- Regular Strucid
-    else
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/noob/a.lua", true))() -- Zone Wars
-    end
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/noob/a.lua", true))() -- Zone Wars
 
     -- make a choice to do Strucid or Strucid Zone Wars
 
@@ -827,7 +747,7 @@ e:Button("Activate Dark Hub",function()
 end)
 
 e:Button("Activate Luk Hub",function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/noob/LukHub.lua"))();
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/noob/LukHub.lua", true))();
 
     -- Supported Games (this gui is pretty outdated so use at your own risk)
     -- Galaxy

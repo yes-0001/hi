@@ -1,4 +1,8 @@
+local ContextActionService = game:GetService("ContextActionService")
+local UserInputService = game:GetService("UserInputService")
+
 local MACRO_KB = {Enum.KeyCode.LeftShift, Enum.KeyCode.O}
+local TOGGLE_INPUT_PRIORITY = Enum.ContextActionPriority.Low.Value
 
 local PlayerState = {} do
 local StarterGui = game:GetService("StarterGui")
@@ -53,11 +57,11 @@ function PlayerState.Pop()
     end
 end
 
-local function StartFreecam()
+local function StartCinematic()
     PlayerState.Push()
 end
 
-local function StopFreecam()
+local function StopCinematic()
     PlayerState.Pop()
 end
 
@@ -68,9 +72,9 @@ do
 
     local function ToggleFreecam()
         if enabled then
-            StopFreecam()
+            StopCinematic()
             else
-            StartFreecam()
+            StartCinematic()
         end
         enabled = not enabled
     end
@@ -87,11 +91,11 @@ do
     local function HandleActivationInput(action, state, input)
         if state == Enum.UserInputState.Begin then
             if input.KeyCode == MACRO_KB[#MACRO_KB] then
-            CheckMacro(MACRO_KB)
+                CheckMacro(MACRO_KB)
             end
         end
         return Enum.ContextActionResult.Pass
     end
 
-    ContextActionService:BindActionAtPriority("FreecamToggle", HandleActivationInput, false, TOGGLE_INPUT_PRIORITY, FREECAM_MACRO_KB[#FREECAM_MACRO_KB])
+    ContextActionService:BindActionAtPriority("CinematicToggle", HandleActivationInput, false, TOGGLE_INPUT_PRIORITY, MACRO_KB[#MACRO_KB])
 end
