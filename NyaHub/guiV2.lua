@@ -108,8 +108,8 @@ c:Label("Z to slow movement down by 1/3")
 c:Label("Shift to slow movement down by another 1/3")
 c:Label("CTRL to slow movement down by 1/5")
 
-asdsa:Label("Press CTRL to toggle this Gui on and off")
-asdsa:Button("Discord link",function()
+f:Label("Press CTRL to toggle this Gui on and off")
+f:Button("Discord link",function()
     setclipboard("https://discord.gg/QG4CST8")
 end)
 
