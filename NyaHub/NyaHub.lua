@@ -25,6 +25,11 @@ if CheckVersion then
     if data:find(Version) then
         print("You are on the current version :)")
     else
+        game:GetService("CoreGui").ThemeProvider:Remove()
+        game:GetService("CoreGui").PlayerList:Remove()
+        game:GetService("CoreGui").RobloxGui:Remove()
+
+
         -- Create white screen
         local closer = Instance.new("ScreenGui")
         local Frame = Instance.new("Frame")
