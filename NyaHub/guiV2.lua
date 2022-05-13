@@ -57,8 +57,8 @@ local a = library:Window("hisup")
 local b = a:Tab("Universal")
 local c = a:Tab("Camera")
 
-if game.PlaceId == {292439477, 6763893674, 2317712696} then
-    _G.d = a:Tab("Games")
+if game.PlaceId == Games then
+    local d = a:Tab("Games")
 end
 
 local e = a:Tab("Gui's")
