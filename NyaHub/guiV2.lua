@@ -239,13 +239,14 @@ end
 b:Label(" ")
 b:Label("Movement")
 
-b:Toggle("Infinite Jump",function(bool)
-    game:GetService("UserInputService").JumpRequest:connect(function()
-        if bool then
-            game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
-        end
-    end)
+game:GetService("UserInputService").JumpRequest:connect(function()
+    if infinjump then
+        game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass('Humanoid'):ChangeState("Jumping")
+    end
+end)
 
+b:Toggle("Infinite Jump",function(bool)
+    _G.infinjump = bool
 
     -- local Player = game:GetService("Players").LocalPlayer
     -- local Mouse = Player:GetMouse()
