@@ -16,10 +16,17 @@ local CheckVersion = true
 if CheckVersion then
     local CV = game:GetService('HttpService'):JSONDecode("https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/CurrentVersion.txt")
 
-    if CV ~= Version then
+    if CV.Version ~= Version then
         -- Remove roblox buttons
-        for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do
-            v:Destroy()
+        local playergui = LocalPlayer:FindFirstChildOfClass("PlayerGui")
+        if playergui then
+            for _, gui in pairs(playergui:GetChildren()) do
+                if gui:IsA("ScreenGui") and gui.Enabled then
+                    screenGuis[#screenGuis + 1] = gui
+                    gui.Enabled = false
+                    game:GetService("CoreGui").ThemeProvider.TopBarFrame.LeftFrame.MenuIcon.Visible = false
+                end
+            end
         end
         
         -- Create white screen
