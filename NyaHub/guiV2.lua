@@ -35,6 +35,9 @@ local Games = {
 local Client = {
     Config = {
         Universal = true -- instead of loading the default Universal UI in every game, if the game is supported it will load the UI for that game
+    },
+    Player = {
+        InfJump = false
     }
 }
 
@@ -240,50 +243,13 @@ b:Label(" ")
 b:Label("Movement")
 
 game:GetService("UserInputService").JumpRequest:connect(function()
-    if infinjump then
-        game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass('Humanoid'):ChangeState("Jumping")
+    if Client.Player.InfJump then
+        game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
     end
 end)
 
 b:Toggle("Infinite Jump",function(bool)
-    _G.infinjump = bool
-
-    -- local Player = game:GetService("Players").LocalPlayer
-    -- local Mouse = Player:GetMouse()
-    -- Mouse.KeyDown:connect(function(k)
-    --     if _G.infinjump then
-    --         if k:byte() == 32 then
-    --             Humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
-    --             Humanoid:ChangeState("Jumping")
-    --             wait(0.1)
-    --             Humanoid:ChangeState("Seated")
-    --         end
-    --     end
-    -- end)
-
-    -- local Player = game:GetService("Players").LocalPlayer
-    -- local Mouse = Player:GetMouse()
-    -- Mouse.KeyDown:connect(function(k)
-    --     k = k:lower()
-    --     if k == "f" then
-    --         if _G.infinjump == true then
-    --             _G.infinjump = false
-    --         else
-    --             _G.infinjump = true
-    --         end
-    --     end
-    -- end)
-
-
-
-    --[[ ==========  Notifications  ========== ]]
-
-    local StarterGui = game:GetService("StarterGui")
-
-    StarterGui:SetCore("SendNotification",{
-        Title = "Infinite Jump",
-        Text = "Loaded successfully"
-    })
+    Client.Player.InfJump = bool
 end)
 
 b:Slider("Speed", 0, 200,function(num)
