@@ -14,9 +14,15 @@ local CheckVersion = true
 
 
 if CheckVersion then
-    local CV = game:GetService('HttpService'):JSONDecode("https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/CurrentVersion.txt")
+    local URL = "https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/CurrentVersion.json"
+ 
+    -- Make the request to our endpoint URL
+    local response = HttpService:GetAsync(URL)
+    
+    -- Parse the JSON response
+    local data = HttpService:JSONDecode(response)
 
-    if CV.Version ~= Version then
+    if data.Version ~= Version then
         -- Remove roblox buttons
         local playergui = LocalPlayer:FindFirstChildOfClass("PlayerGui")
         if playergui then
