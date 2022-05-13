@@ -7,6 +7,46 @@
 ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝
 ]]
 
+--[[ ==========  Settings  ========== ]]
+
+local Version = "v1.0" -- do not change
+local CheckVersion = true
+
+
+if CheckVersion then
+    local CV = game:GetService('HttpService'):JSONDecode("https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/CurrentVersion.txt")
+
+    if CV ~= Version then
+        -- Remove roblox buttons
+        for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do
+            v:Destroy()
+        end
+        
+        -- Create white screen
+        local closer = Instance.new("ScreenGui")
+        local Frame = Instance.new("Frame")
+        closer.Name = "closer"
+        closer.Parent = game.CoreGui
+        closer.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        Frame.Parent = closer
+        Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Frame.Position = UDim2.new(-0.0232732724, 0, -0.0404907987, 0)
+        Frame.Size = UDim2.new(0, 5000, 0, 5000)
+        
+        -- Crash game
+        spawn(function()
+            wait(0.5)
+            while true do end
+        end)
+        
+        -- Fake messagebox
+        messagebox("NyaHub is not currently updated. Please wait for an update to release.", "NyaHub", 0x10)
+    else
+        print("You are on the current version :)")
+    end
+end
+
+
 
 --[[ ==========  Supported Games  ========== ]]
 -- Phantom Forces
