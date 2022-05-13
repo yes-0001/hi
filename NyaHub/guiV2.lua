@@ -156,7 +156,7 @@ b:Button("Teleport to Player",function()
         tween:Play()
     end
 
-    Player.character.HumanoidRootPart.CFrame = Tween_FOV(game.Players[Target].character.HumanoidRootPart.CFrame, 1.5)
+    Player.character.HumanoidRootPart.CFrame = Tween_Pos(game.Players[Target].character.HumanoidRootPart.CFrame, 1.5)
 
     --Player.character.HumanoidRootPart.CFrame = game.Players[Target].character.HumanoidRootPart.CFrame
 end)
