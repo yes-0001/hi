@@ -1,3 +1,61 @@
+Nya_Client = {SavedSettings = false}
+if isfolder and makefolder and not isfolder('NyaHub') then
+    makefolder('NyaHub')
+    Nya_Client.SaveSettings = true
+    if isfile('NyaHub/NyaHub_'..tostring(Game.PlaceId)..'.NYAHUB') then
+        Nya_Client.SavedSettings = true
+        Nya_Client.GameSettings = game:GetService('HttpService'):JSONDecode(readfile('NyaHub/NyaHub_'..tostring(Game.PlaceId)..'.NYAHUB'))
+    end
+elseif isfolder('NyaHub') then
+    Nya_Client.SaveSettings = true
+    if isfile('NyaHub/NyaHub_'..tostring(Game.PlaceId)..'.NYAHUB') then
+        Nya_Client.SavedSettings = true
+        Nya_Client.GameSettings = game:GetService('HttpService'):JSONDecode(readfile('NyaHub/NyaHub_'..tostring(Game.PlaceId)..'.NYAHUB'))
+    end
+else
+    Nya_Client.SaveSettings = false
+end
+
+IsUpToDate = pcall(function()
+    Client = {
+        Toggles = {
+            SilentAim = Nya_Client.SavedSettings and Nya_Client.GameSettings.Toggles.SilentAim or false,
+            VisibleCheck = Nya_Client.SavedSettings and Nya_Client.GameSettings.Toggles.VisibleCheck or false,
+            Head = Nya_Client.SavedSettings and Nya_Client.GameSettings.Toggles.Head or false,
+            UseFov = Nya_Client.SavedSettings and Nya_Client.GameSettings.Toggles.UseFov or false,
+            NoRecoil = Nya_Client.SavedSettings and Nya_Client.GameSettings.Toggles.NoRecoil or false,
+            NoSpread = Nya_Client.SavedSettings and Nya_Client.GameSettings.Toggles.NoSpread or false,
+            SmallCrosshair = Nya_Client.SavedSettings and Nya_Client.GameSettings.Toggles.SmallCrosshair or false,
+            NoSway = Nya_Client.SavedSettings and Nya_Client.GameSettings.Toggles.NoSway or false,
+            NoBob = Nya_Client.SavedSettings and Nya_Client.GameSettings.Toggles.NoBob or false,
+            NoCamBob = Nya_Client.SavedSettings and Nya_Client.GameSettings.Toggles.NoCamBob or false,
+            Boxes = Nya_Client.SavedSettings and Nya_Client.GameSettings.Toggles.Boxes or false,
+            Tracers = Nya_Client.SavedSettings and Nya_Client.GameSettings.Toggles.Tracers or false,
+            Skeleton = Nya_Client.SavedSettings and Nya_Client.GameSettings.Toggles.Skeleton or false,
+            Invisible = Nya_Client.SavedSettings and Nya_Client.GameSettings.Toggles.Invisible or false
+        },
+        Values = {
+            Fov = Nya_Client.SavedSettings and Nya_Client.GameSettings.Values.Fov or 500,
+            WalkSpeed = Nya_Client.SavedSettings and Nya_Client.GameSettings.Values.WalkSpeed or 0,
+            JumpPower = Nya_Client.SavedSettings and Nya_Client.GameSettings.Values.JumpPower or 0
+        }
+    }
+end)
+if not IsUpToDate and Nya_Client.SavedSettings and isfile('NyaHub/NyaHub_'..tostring(Game.PlaceId)..'.NYAHUB') then
+    delfile('NyaHub/NyaHub_'..tostring(Game.PlaceId)..'.NYAHUB')
+    game.Players.LocalPlayer:Kick('NyaHub Settings Out Of Date - Issue Fixed | Restart NyaHub to Continue')
+end
+
+spawn(function()
+  while true do wait(5)
+      if DarkHub_Client.SaveSettings then
+          writefile('NyaHub/NyaHub_'..tostring(Game.PlaceId)..'.NYAHUB',game:GetService('HttpService'):JSONEncode({['Toggles'] = Client.Toggles,['Values'] = Client.Values}))    
+      end
+  end
+end)
+
+
+
 local ESP = 0 --ESP
 local FlyOrWhat = 0 --Fly
 local AutoRes = 0 --Auto Respawn
@@ -86,14 +144,6 @@ end
 OldFunction = hookfunction(func, Hook)
 end
   spawn(HookItNow)
-
-  --Modify some messages cuz why not?
-for i, v in pairs(getgc(true)) do
-   if type(v) == "table" and rawget(v, "squad") then
-       v.kill = {"You killed your enemy with the help of gogo1000"}
-       v.suppression = {"You suppressed the enemy with the help of gogo1000"}
-   end
-end
 
 
 --Draw ESP function

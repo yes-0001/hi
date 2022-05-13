@@ -12,6 +12,15 @@ Mainz:Button("GodMode",function(state)
     game:GetService("Players").LocalPlayer.PlayerScripts.KillBricks:Remove()
 end)
 
+Mainz:Keybind("Wall Hop macro",Enum.KeyCode.E,function()
+    keypress(0x20)
+    mousemoverel(200, 0)
+    wait(0.01)
+    mousemoverel(-200, 0)
+    wait(0.05)
+    keyrelease(0x20)
+end)
+
 Mainz:Toggle("Auto-Buy",function(state)
     settings.Buy = state
 end)

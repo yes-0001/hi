@@ -111,9 +111,8 @@ if game.PlaceId == 263761432 then
 end
 
 if game.PlaceId == 606849621 then
-    loadstring(game:HttpGet(('https://raw.githubusercontent.com/yes-0001/hi/main/noob/Jailbreak.lua'), true))() -- Jailbreak
-    wait(20)
     game:GetService("Workspace").SecretBaseCriminal.Lift:Remove()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/yes-0001/hi/main/noob/Jailbreak.lua'), true))() -- Jailbreak
     return
 end
 

@@ -1,4 +1,21 @@
-_G.scanRemotes = true
+--[[
+
+    - Originally Created by Vaeb - https://pastebin.com/u/Vaeb
+	- Quality-Of-Life updates by y e s#0001 - https://discord.gg/cAmPnmYuHW
+
+]]
+
+
+
+local bool = true
+
+if bool then
+	_G.scanRemotes = true
+	print("on")
+else
+	_G.scanRemotes = false
+	print("off")
+end
 
 _G.ignoreNames = {
 	Event = true;
@@ -190,16 +207,68 @@ gameMeta.__index, gameMeta.__namecall = function(self, key)
 
 		local ok, data = pcall(getValues, self, key, ...)
 
-        rconsoleprint('@@RED@@')
+		local TIME_ZONE = -7
+
+		local date = os.date("!*t")
+		local hour = (date.hour + TIME_ZONE) % 24
+		local seconds = date.sec
+		local ampm = hour < 12 and "AM" or "PM"
+		local timestamp = string.format("%02i:%02i:%02i %s", ((hour - 1) % 12) + 1, date.min, seconds, ampm)
+
 		if ok then
-			returnValues = data
-			rconsoleprint("\n" .. strId .. " ClassName: " .. self.ClassName .. " | Path: " .. self:GetFullName() .. " | Method: " .. key .. "\n" .. strId .. " Packed Arguments: " .. tableToString(allPassed) .. "\n" .. strId .. " Packed Returned: " .. tableToString(returnValues) .. "\n")
+			if bool then
+				rconsoleprint('@@RED@@')
+				returnValues = data
+				rconsoleprint("\n" .. timestamp .. " - " .. strId .. " ClassName: " .. self.ClassName .. " | Path: " .. self:GetFullName() .. " | Method: " .. key .. "\n" .. strId .. " Packed Arguments: " .. tableToString(allPassed) .. "\n" .. strId .. " Packed Returned: " .. tableToString(returnValues) .. "\n")
+				
+				rconsoleprint('@@WHITE@@')
+				local a = rconsoleinput()
+
+				if a == "clear" then
+					rconsoleclear()
+					rconsoleprint('@@WHITE@@')
+					rconsoleprint('\nRemoteSpy\n    - "clear" to clear the console\n    - "stop" to stop the RemoteSpy\n    - "resume" or "return" to resume the RemoteSpy\n')
+				end
+				if a == "stop" then
+					bool = false
+				end
+				if a == "resume" then
+					bool = true
+				end
+				if a == "return" then
+					bool = true
+				end
+			end
 		else
-			rconsoleprint("\n" .. strId .. " ClassName: " .. self.ClassName .. " | Path: " .. self:GetFullName() .. " | Method: " .. key .. "\n" .. strId .. " Packed Arguments: " .. tableToString(allPassed) .. "\n" .. strId .. " Packed Returned: [ERROR] " .. data .. "\n")
+			if bool then
+				rconsoleprint('@@RED@@')
+				rconsoleprint("\n" .. timestamp .. " - " .. strId .. " ClassName: " .. self.ClassName .. " | Path: " .. self:GetFullName() .. " | Method: " .. key .. "\n" .. strId .. " Packed Arguments: " .. tableToString(allPassed) .. "\n" .. strId .. " Packed Returned: [ERROR] " .. data .. "\n")
+				
+				rconsoleprint('@@WHITE@@')
+				local a = rconsoleinput()
+
+				if a == "clear" then
+					rconsoleclear()
+					rconsoleprint('@@WHITE@@')
+					rconsoleprint('\nRemoteSpy\n    - "clear" to clear the console\n    - "stop" to stop the RemoteSpy\n    - "resume" to resume the RemoteSpy\n')
+				end
+				if a == "stop" then
+					bool = false
+				end
+				if a == "resume" then
+					bool = true
+				end
+				if a == "return" then
+					bool = true
+				end
+			end
 		end
 
 		return unpack(returnValues)
 	end
 end
 
-print("\nRemoteSpy\n")
+if bool then
+	rconsolename("RemoteSpy")
+	rconsoleprint('\nRemoteSpy\n    - "clear" to clear the console\n    - "stop" to stop the RemoteSpy\n    - "resume" to resume the RemoteSpy\n')
+end

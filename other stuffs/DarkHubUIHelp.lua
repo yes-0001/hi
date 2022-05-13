@@ -2,7 +2,7 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Rando
 
 local w = library:Window() -- Creates the window
 
-local b = w:Tab('Tab1') -- Creates the folder (U will put here your buttons,etc)
+local b = w:Tab("Tab1") -- Creates the folder (U will put here your buttons,etc)
 
 local Client = {
     Toggles = {
@@ -18,18 +18,18 @@ local Client = {
     }
 }
 
-b:Label('Test label')
+b:Label("Test label")
 
-b:Button('Test button',function()
-    print('The button worked :D')
+b:Button("Test button",function()
+    print("The button worked :D")
 end)
 
-b:Toggle('toggle1',function(state)
+b:Toggle("toggle1",function(state)
     Client.Toggles.toggle1 = state
     print(state)
 end)
 
-b:Slider('walkspeed', 0, 100,function(num) -- min/max
+b:Slider("walkspeed", 0, 100,function(num) -- min/max
     game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = num
 end)
 
@@ -42,7 +42,7 @@ b:Dropdown("Select player",Players,function(selected)
     print(selected)
 end)
 
-b:Keybind('Keybind',Enum.KeyCode.C,function() -- Default bind
+b:Keybind("Keybind",Enum.KeyCode.C,function() -- Default bind
     print("Key pressed")
 end)
 
@@ -54,6 +54,6 @@ b:Colorpicker("Color",Color3.fromRGB(255, 40, 0),function(color) -- Default colo
     game.Workspace:FindFirstChild(player1).Head.OverheadGui.InformationLabel.TextColor3 = color
 end)
 
-b:Textbox('Box',true,function(value) -- true/false, if true it will hide the text until you click on the box
+b:Textbox("Box",true,function(value) -- true/false, if true it will hide the text until you click on the box
     print(value)
 end)
