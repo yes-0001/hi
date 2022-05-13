@@ -147,7 +147,8 @@ b:Button("Teleport to Player",function()
     character = workspace:WaitForChild(Player.name)
     Target = SelectedPlayerr
 
-    local tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1.5), {CFrame = game.Players[Target].character.HumanoidRootPart.CFrame})
+    local tween_info = TweenInfo.new(1.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut)
+    local tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, tween_info, {CFrame = game.Players[Target].character.HumanoidRootPart.CFrame})
     tween:Play()
 
     --Player.character.HumanoidRootPart.CFrame = game.Players[Target].character.HumanoidRootPart.CFrame
