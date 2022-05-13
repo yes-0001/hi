@@ -14,15 +14,18 @@ local CheckVersion = true
 
 
 if CheckVersion then
-    local URL = "https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/CurrentVersion.json"
- 
-    -- Make the request to our endpoint URL
-    local response = HttpService:GetAsync(URL)
-    
-    -- Parse the JSON response
-    local data = HttpService:JSONDecode(response)
+    local URL = "https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/CurrentVersion.txt"
 
-    if data.Version ~= Version then
+    local Response = syn.request({
+        Url = "https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/CurrentVersion.txt",
+        Method = "GET"
+    })
+
+    local data = Response.Body
+
+
+
+    if data ~= Version then
         -- Remove roblox buttons
         local playergui = LocalPlayer:FindFirstChildOfClass("PlayerGui")
         if playergui then
