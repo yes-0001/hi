@@ -58,7 +58,7 @@ local b = a:Tab("Universal")
 local c = a:Tab("Camera")
 
 if game.PlaceId == Games then
-    local d = a:Tab("Games")
+    _G.d = a:Tab("Games")
 end
 
 local e = a:Tab("Gui's")
