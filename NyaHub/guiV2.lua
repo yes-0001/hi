@@ -149,16 +149,20 @@ b:Button("Teleport to Player",function()
     Player.character.HumanoidRootPart.CFrame = game.Players[Target].character.HumanoidRootPart.CFrame
 end)
 
-if game.PlaceId ~= 292439477 then
-    -- b:Bind("Hit Player",Enum.KeyCode.I,function()
-    --     local A_1 = game.Players[SelectedPlayerr].Character.Head
-    --     local A_2 = Vector3.new()
-    --     local A_3 = Vector3.new()
-    --     local A_4 = nil
-    --     local Event = game:GetService("ReplicatedStorage").Knit.Services.CombatService.RE.PartHit
-    --     Event:FireServer(A_1, A_2, A_3, A_4)
-    -- end)
+-- b:Bind("Hit Player",Enum.KeyCode.I,function()
+--     local A_1 = game.Players[SelectedPlayerr].Character.Head
+--     local A_2 = Vector3.new()
+--     local A_3 = Vector3.new()
+--     local A_4 = nil
+--     local Event = game:GetService("ReplicatedStorage").Knit.Services.CombatService.RE.PartHit
+--     Event:FireServer(A_1, A_2, A_3, A_4)
+-- end)
 
+b:Button("Toggle ESP",function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/ic3w0lf22/Unnamed-ESP/master/UnnamedESP.lua', true))()
+end)
+
+if game.PlaceId ~= 292439477 then
     b:Slider("Hitbox Size", 5, 50,function(value)
         _G.HeadSize2 = value
     end)
@@ -225,10 +229,6 @@ if game.PlaceId ~= 292439477 then
         end
     end)
 end
-
-b:Button("Toggle ESP",function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/ic3w0lf22/Unnamed-ESP/master/UnnamedESP.lua', true))()
-end)
 
 ------------------------------------------------------------------------
 
