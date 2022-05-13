@@ -25,18 +25,11 @@ along with tons more games in the Gui's tab :D
 ------------------------------------------------------------------------
 -- Settings
 
-local Games = {
-    6763893674;
-    292439477;
-    2317712696;
-};
-
-for i, v in ipairs(Games) do
-    Games[v] = true;
-    Games[i] = false;
-end
-
-local Game = Games[game.PlaceId];
+local chosenGame = ({
+    [292439477] = "phantomforces",
+    [6763893674] = "Ballista",
+    [2317712696] = "The Wild West"
+})[game.PlaceId]
 
 
 local Client = {
@@ -64,8 +57,8 @@ local a = library:Window("hisup")
 local b = a:Tab("Universal")
 local c = a:Tab("Camera")
 
-if not Game then
-    local d = a:Tab("Games")
+if chosenGame then
+    _G.d = a:Tab("Games")
 end
 
 local e = a:Tab("Gui's")
