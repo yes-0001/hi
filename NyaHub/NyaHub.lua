@@ -14,8 +14,6 @@ local CheckVersion = true
 
 
 if CheckVersion then
-    local URL = "https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/CurrentVersion.txt"
-
     local Response = syn.request({
         Url = "https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/CurrentVersion.txt",
         Method = "GET"
@@ -24,20 +22,9 @@ if CheckVersion then
     local data = Response.Body
 
 
-
-    if data ~= Version then
-        -- Remove roblox buttons
-        local playergui = LocalPlayer:FindFirstChildOfClass("PlayerGui")
-        if playergui then
-            for _, gui in pairs(playergui:GetChildren()) do
-                if gui:IsA("ScreenGui") and gui.Enabled then
-                    screenGuis[#screenGuis + 1] = gui
-                    gui.Enabled = false
-                    game:GetService("CoreGui").ThemeProvider.TopBarFrame.LeftFrame.MenuIcon.Visible = false
-                end
-            end
-        end
-        
+    if data:find(Version) then
+        print("You are on the current version :)")
+    else
         -- Create white screen
         local closer = Instance.new("ScreenGui")
         local Frame = Instance.new("Frame")
@@ -51,8 +38,7 @@ if CheckVersion then
         
         -- Fake messagebox
         game.Players.LocalPlayer:Kick("NyaHub is not currently updated. Please wait for an update to release.")
-    else
-        print("You are on the current version :)")
+        return
     end
 end
 
