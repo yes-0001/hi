@@ -149,88 +149,87 @@ b:Button("Teleport to Player",function()
     Player.character.HumanoidRootPart.CFrame = game.Players[Target].character.HumanoidRootPart.CFrame
 end)
 
--- b:Bind("Hit Player",Enum.KeyCode.I,function()
---     local A_1 = game.Players[SelectedPlayerr].Character.Head
---     local A_2 = Vector3.new()
---     local A_3 = Vector3.new()
---     local A_4 = nil
---     local Event = game:GetService("ReplicatedStorage").Knit.Services.CombatService.RE.PartHit
---     Event:FireServer(A_1, A_2, A_3, A_4)
--- end)
-
-b:Button("Toggle ESP",function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/ic3w0lf22/Unnamed-ESP/master/UnnamedESP.lua', true))()
-end)
-
 if game.PlaceId ~= 292439477 then
-    if game.PlaceId == 6763893674 then
-        b:Slider("Hitbox Size", 5, 50,function(value)
-            _G.HeadSize2 = value
-        end)
 
-        b:Dropdown("Hitbox part",{"Head","HumanoidRootPart"},function(selected)
-            if selected == "HumanoidRootPart" then
-                _G.Part = "HumanoidRootPart"
-            end
-            if selected == "Head" then
-                _G.Part = "Head"
-            end
-        end)
+    b:Bind("Hit Player",Enum.KeyCode.I,function()
+        local A_1 = game.Players[SelectedPlayerr].Character.Head
+        local A_2 = Vector3.new()
+        local A_3 = Vector3.new()
+        local A_4 = nil
+        local Event = game:GetService("ReplicatedStorage").Knit.Services.CombatService.RE.PartHit
+        Event:FireServer(A_1, A_2, A_3, A_4)
+    end)
 
-        b:Toggle("Hitbox expander",function(state)-- Variables
-            local player = game.Players.LocalPlayer
+    b:Slider("Hitbox Size", 5, 50,function(value)
+        _G.HeadSize2 = value
+    end)
 
-            if not HeadSize2 then
-                HeadSize2 = 10
-            end
+    b:Dropdown("Hitbox part",{"Head","HumanoidRootPart"},function(selected)
+        if selected == "HumanoidRootPart" then
+            _G.Part = "HumanoidRootPart"
+        end
+        if selected == "Head" then
+            _G.Part = "Head"
+        end
+    end)
 
-            if not Part then
-                Part = "HumanoidRootPart"
-            end
+    b:Toggle("Hitbox expander",function(state)-- Variables
+        local player = game.Players.LocalPlayer
 
-            -- Script
-            _G.HeadSize = 0
-            _G.Disabled = true
+        if not HeadSize2 then
+            HeadSize2 = 10
+        end
 
-            if state then
-                if _G.Disabled then
+        if not Part then
+            Part = "HumanoidRootPart"
+        end
+
+        -- Script
+        _G.HeadSize = 0
+        _G.Disabled = true
+
+        if state then
+            if _G.Disabled then
+                while wait(5) do
+
                     while wait(5) do
-
-                        while wait(5) do
-                            for i,v in next, game:GetService('Players'):GetPlayers() do
-                                if v.Name ~= game:GetService('Players').LocalPlayer.Name then
-                                    pcall(function()
-                                        --v.Character.Head.Size = Vector3.new(_G.HeadSize2,_G.HeadSize2,_G.HeadSize2)
-                                        v.Character.Part.Size = Vector3.new(_G.HeadSize2,_G.HeadSize2,_G.HeadSize2)
-                            
-                                        -- v.Character.Head.Transparency = 1
-                                        -- v.Character.HumanoidRootPart.CanCollide = false
-                            
-                                        v.Character.Part.Transparency = 0.7
-                                        v.Character.Part.BrickColor = Color3.fromRGB(54, 117, 184) -- Blue Team: 54, 117, 184 -- Red Team: 135, 49, 49
-                                        v.Character.Part.Material = "Neon"
-                                        v.Character.Part.CanCollide = false
+                        for i,v in next, game:GetService('Players'):GetPlayers() do
+                            if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+                                pcall(function()
+                                    --v.Character.Head.Size = Vector3.new(_G.HeadSize2,_G.HeadSize2,_G.HeadSize2)
+                                    v.Character.Part.Size = Vector3.new(_G.HeadSize2,_G.HeadSize2,_G.HeadSize2)
+                        
+                                    -- v.Character.Head.Transparency = 1
+                                    -- v.Character.HumanoidRootPart.CanCollide = false
+                        
+                                    v.Character.Part.Transparency = 0.7
+                                    v.Character.Part.BrickColor = Color3.fromRGB(54, 117, 184) -- Blue Team: 54, 117, 184 -- Red Team: 135, 49, 49
+                                    v.Character.Part.Material = "Neon"
+                                    v.Character.Part.CanCollide = false
 
 
-                                        --[[ ==========  Notifications  ========== ]]
+                                    --[[ ==========  Notifications  ========== ]]
 
-                                        local StarterGui = game:GetService("StarterGui")
+                                    local StarterGui = game:GetService("StarterGui")
 
-                                        StarterGui:SetCore("SendNotification",{
-                                            Title = "Hitbox Expander",
-                                            Text = "Loaded successfully"
-                                        })
+                                    StarterGui:SetCore("SendNotification",{
+                                        Title = "Hitbox Expander",
+                                        Text = "Loaded successfully"
+                                    })
 
-                                    end)
-                                end
+                                end)
                             end
                         end
                     end
                 end
             end
-        end)
-    end
+        end
+    end)
 end
+
+b:Button("Toggle ESP",function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/ic3w0lf22/Unnamed-ESP/master/UnnamedESP.lua', true))()
+end)
 
 ------------------------------------------------------------------------
 
