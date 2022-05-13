@@ -25,11 +25,11 @@ along with tons more games in the Gui's tab :D
 ------------------------------------------------------------------------
 -- Settings
 
-local chosenGame = ({
-    [292439477] = "phantomforces",
-    [6763893674] = "Ballista",
-    [2317712696] = "The Wild West"
-})[game.PlaceId]
+local Games = {
+    292439477,
+    6763893674,
+    2317712696
+}
 
 
 local Client = {
@@ -57,7 +57,7 @@ local a = library:Window("hisup")
 local b = a:Tab("Universal")
 local c = a:Tab("Camera")
 
-if chosenGame then
+if game.PlaceId == Games then
     _G.d = a:Tab("Games")
 end
 
@@ -424,15 +424,6 @@ b:Button("Click TP",function()
         Title = "Click TP",
         Text = "Press C to use"
     })
-end)
-
-b:Keybind("Wall Hop macro",Enum.KeyCode.E,function()
-    keypress(0x20)
-    mousemoverel(200, 0)
-    wait(0.01)
-    mousemoverel(-200, 0)
-    wait(0.05)
-    keyrelease(0x20)
 end)
 
 ------------------------------------------------------------------------
