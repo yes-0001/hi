@@ -241,10 +241,8 @@ b:Label("Movement")
 
 b:Toggle("Infinite Jump",function(bool)
     game:GetService("UserInputService").JumpRequest:connect(function()
-        if Client.Player.InfJump then
-            if bool then
-                game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
-            end
+        if bool then
+            game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
         end
     end)
 
