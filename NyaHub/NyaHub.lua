@@ -9,7 +9,7 @@
 
 --[[ ==========  Settings  ========== ]]
 
-local Version = "v1.0" -- do not change
+local Version = "v1.1" -- do not change
 local CheckVersion = true
 
 
@@ -46,14 +46,8 @@ if CheckVersion then
         Frame.Position = UDim2.new(-0.0232732724, 0, -0.0404907987, 0)
         Frame.Size = UDim2.new(0, 5000, 0, 5000)
         
-        -- Crash game
-        spawn(function()
-            wait(0.5)
-            while true do end
-        end)
-        
         -- Fake messagebox
-        messagebox("NyaHub is not currently updated. Please wait for an update to release.", "NyaHub", 0x10)
+        game.Players.LocalPlayer:Kick("NyaHub is not currently updated. Please wait for an update to release.")
     else
         print("You are on the current version :)")
     end
