@@ -64,7 +64,7 @@ local a = library:Window("hisup")
 local b = a:Tab("Universal")
 local c = a:Tab("Camera")
 
-if Game then
+if not Game then
     local d = a:Tab("Games")
 end
 

@@ -98,11 +98,6 @@ if chosenGame then
 else
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "NyaHub",
-        Text = "NyaHub does not support this game"
-    })
-    wait(1)
-    game:GetService("StarterGui"):SetCore("SendNotification", {
-        Title = "NyaHub",
         Text = "Loading Universal UI"
     })
     wait(3)
