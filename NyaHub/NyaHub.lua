@@ -10,7 +10,7 @@
 --[[ ==========  Settings  ========== ]]
 
 local Version = "v1.1" -- do not change
-local CheckVersion = true
+local CheckVersion = true -- checks if your version is outdated, if it is outdated it will kick you until you update, make this false if you want a possibly broken script
 
 
 if CheckVersion then

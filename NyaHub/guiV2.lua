@@ -25,6 +25,20 @@ along with tons more games in the Gui's tab :D
 ------------------------------------------------------------------------
 -- Settings
 
+local Games = {
+    6763893674;
+    292439477;
+    2317712696;
+};
+
+for i, v in ipairs(Games) do
+    Games[v] = true;
+    Games[i] = false;
+end
+
+local Game = Games[game.PlaceId];
+
+
 local Client = {
     Config = {
         Universal = true -- instead of loading the default Universal UI in every game, if the game is supported it will load the UI for that game
@@ -49,7 +63,11 @@ local a = library:Window("hisup")
 
 local b = a:Tab("Universal")
 local c = a:Tab("Camera")
-local d = a:Tab("Games")
+
+if Game then
+    local d = a:Tab("Games")
+end
+
 local e = a:Tab("Gui's")
 local f = a:Tab("Misc")
 
