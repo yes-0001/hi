@@ -5,7 +5,7 @@ Plane Script Made By Capo#0152!
 
 local speed = 0.5
 getgenv().SendChatMessages = false -- set to true to say the drone messages in chat (kinda spammy)
-getgenv().PlayAudios = true -- set to true if you want to hear the clientsided sounds
+getgenv().PlayAudios = false -- set to true if you want to hear the clientsided sounds
 
 --[[ Controls:
     T - toggle stand-by mode
@@ -1452,22 +1452,22 @@ ti(cons, game:GetService("RunService").RenderStepped:connect(function()
 			zt = zt - 1
 		end
 		if qd == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(3))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(1))
 		end
 		if ed == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(-3))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(-1))
 		end
 		if rd == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(-3),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(-1),math.rad(0))
 		end
 		if fd == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(3),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(1),math.rad(0))
 		end
 		if fr == true then
-			tCf = tCf * CFrame.Angles(math.rad(3),math.rad(0),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(1),math.rad(0),math.rad(0))
 		end
 		if r == true then
-			tCf = tCf * CFrame.Angles(math.rad(-3),math.rad(0),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(-1),math.rad(0),math.rad(0))
 		end
 		local nvec = Vector3.new(0,2,7)
 		if seat.Occupant ~= nil then
