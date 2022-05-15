@@ -1325,14 +1325,14 @@ ti(cons, mouse.KeyDown:connect(function(key)
 			cMsg("Standby.")
 		end
 	end
-	if key == "w" then
+	if key == "z" then
 		wd = true
-	elseif key == "a" then
-		ad = true
-	elseif key == "s" then
+	-- elseif key == "a" then
+	-- 	ad = true
+	elseif key == "LeftAlt" then
 		sd = true
-	elseif key == "d" then
-		dd = true
+	-- elseif key == "d" then
+	-- 	dd = true
 	elseif key == "x" then
 		qd = true
 	elseif key == "c" then
@@ -1380,26 +1380,26 @@ ti(cons, mouse.KeyDown:connect(function(key)
 end))
 
 ti(cons, mouse.KeyUp:connect(function(key)
-	if key == "w" then
+	if key == "z" then
 		wd = false
-	elseif key == "a" then
-		ad = false
-	elseif key == "s" then
+	-- elseif key == "a" then
+	-- 	ad = false
+	elseif key == "LeftAlt" then
 		sd = false
-	elseif key == "d" then
-		dd = false
-	elseif key == "q" then
-		rd = false
-	elseif key == "e" then
-		fd = false
+	-- elseif key == "d" then
+	-- 	dd = false
 	elseif key == "x" then
 		qd = false
 	elseif key == "c" then
 		ed = false
-	elseif key == "f" then
-	    fr = false
-	elseif key == "r" then
-	    r = false
+	elseif key == "a" then
+		rd = true
+	elseif key == "d" then
+		fd = true
+	elseif key == "w" then
+		fr = true
+	elseif key == "s" then
+		r = true
 	end
 end))
 
