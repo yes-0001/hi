@@ -1327,12 +1327,12 @@ ti(cons, mouse.KeyDown:connect(function(key)
 	end
 	if key == "z" then
 		wd = true
-	-- elseif key == "a" then
-	-- 	ad = true
+	elseif key == "o" then
+		ad = true
 	elseif key == "LeftAlt" then
 		sd = true
-	-- elseif key == "d" then
-	-- 	dd = true
+	elseif key == "p" then
+		dd = true
 	elseif key == "x" then
 		qd = true
 	elseif key == "c" then
@@ -1382,12 +1382,12 @@ end))
 ti(cons, mouse.KeyUp:connect(function(key)
 	if key == "z" then
 		wd = false
-	-- elseif key == "a" then
-	-- 	ad = false
+	elseif key == "o" then
+		ad = false
 	elseif key == "LeftAlt" then
 		sd = false
-	-- elseif key == "d" then
-	-- 	dd = false
+	elseif key == "p" then
+		dd = false
 	elseif key == "x" then
 		qd = false
 	elseif key == "c" then
