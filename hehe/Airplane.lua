@@ -5,7 +5,7 @@ Plane Script Made By Capo#0152!
 
 local speed = 0.5
 getgenv().SendChatMessages = false -- set to true to say the drone messages in chat (kinda spammy)
-getgenv().PlayAudios = false -- set to true if you want to hear the clientsided sounds
+getgenv().PlayAudios = true -- set to true if you want to hear the clientsided sounds
 
 --[[ Controls:
     T - toggle stand-by mode
