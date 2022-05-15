@@ -1337,13 +1337,13 @@ ti(cons, mouse.KeyDown:connect(function(key)
 		qd = true
 	elseif key == "c" then
 		ed = true
-	elseif key == "q" then
+	elseif key == "a" then
 		rd = true
-	elseif key == "e" then
+	elseif key == "d" then
 		fd = true
-	elseif key == "f" then
+	elseif key == "w" then
 		fr = true
-	elseif key == "r" then
+	elseif key == "s" then
 		r = true
 	elseif key == "g" then
 		if fly == false and returnhome == false then
