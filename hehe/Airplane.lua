@@ -1325,17 +1325,17 @@ ti(cons, mouse.KeyDown:connect(function(key)
 			cMsg("Standby.")
 		end
 	end
-	if key == "z" then
+	if key == "e" then
 		wd = true
 	elseif key == "o" then
 		ad = true
-	elseif key == "x" then
+	elseif key == "q" then
 		sd = true
 	elseif key == "p" then
 		dd = true
-	elseif key == "c" then
+	elseif key == "x" then
 		qd = true
-	elseif key == "v" then
+	elseif key == "c" then
 		ed = true
 	elseif key == "a" then
 		rd = true
@@ -1380,17 +1380,17 @@ ti(cons, mouse.KeyDown:connect(function(key)
 end))
 
 ti(cons, mouse.KeyUp:connect(function(key)
-	if key == "z" then
+	if key == "e" then
 		wd = false
 	elseif key == "o" then
 		ad = false
-	elseif key == "x" then
+	elseif key == "q" then
 		sd = false
 	elseif key == "p" then
 		dd = false
-	elseif key == "c" then
+	elseif key == "x" then
 		qd = false
-	elseif key == "v" then
+	elseif key == "c" then
 		ed = false
 	elseif key == "a" then
 		rd = false
@@ -1493,22 +1493,22 @@ ti(cons, game:GetService("RunService").RenderStepped:connect(function()
 			zt = zt - 1
 		end
 		if qd == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(2))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(3))
 		end
 		if ed == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(-2))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(-3))
 		end
 		if rd == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(-2),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(-3),math.rad(0))
 		end
 		if fd == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(2),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(3),math.rad(0))
 		end
 		if fr == true then
-			tCf = tCf * CFrame.Angles(math.rad(2),math.rad(0),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(3),math.rad(0),math.rad(0))
 		end
 		if r == true then
-			tCf = tCf * CFrame.Angles(math.rad(-2),math.rad(0),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(-3),math.rad(0),math.rad(0))
 		end
 		local nvec = Vector3.new(0,2,7)
 		if seat.Occupant ~= nil then
