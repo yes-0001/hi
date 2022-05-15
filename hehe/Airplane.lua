@@ -1325,7 +1325,7 @@ ti(cons, mouse.KeyDown:connect(function(key)
 			cMsg("Standby.")
 		end
 	end
-	if key == "w" then
+	if key == "x" then
 		wd = true
 	elseif key == "a" then
 		ad = true
