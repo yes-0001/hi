@@ -1325,9 +1325,9 @@ ti(cons, mouse.KeyDown:connect(function(key)
 			cMsg("Standby.")
 		end
 	end
-	-- if key == "z" then
-	-- 	wd = true
-	if key == "o" then
+	if key == "z" then
+		wd = true
+	elseif key == "o" then
 		ad = true
 	elseif key == "q" then
 		sd = true
@@ -1380,9 +1380,9 @@ ti(cons, mouse.KeyDown:connect(function(key)
 end))
 
 ti(cons, mouse.KeyUp:connect(function(key)
-	-- if key == "z" then
-	-- 	wd = false
-	if key == "o" then
+	if key == "z" then
+		wd = false
+	elseif key == "o" then
 		ad = false
 	elseif key == "q" then
 		sd = false
@@ -1404,13 +1404,15 @@ ti(cons, mouse.KeyUp:connect(function(key)
 end))
 
 ti(cons, mouse.Button1Down:connect(function()
-	if moused == false then
+	if moused == false and gun == true then
 		moused = true
         wd = true
 
 		mbup = mouse.Button1Up:connect(function()
 			moused = false
             wd = false
+			frm:disconnect()
+			mbup:disconnect()
 		end)
 	end
 end))
