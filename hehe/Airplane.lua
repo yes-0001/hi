@@ -1473,7 +1473,7 @@ ti(cons, game:GetService("RunService").RenderStepped:connect(function()
 		if seat.Occupant ~= nil then
 			nvec = Vector3.new(2,4,7)
 		end
-		campos = campos:lerp((o37.CFrame * CFrame.Angles(math.rad(100 - xt),math.rad(80.8 - yt),math.rad(0 - zt))) * CFrame.new(nvec),0.90)
+		campos = campos:lerp((o37.CFrame * CFrame.Angles(math.rad(100 - xt),math.rad(80.8 - yt),math.rad(0 - zt))) * CFrame.new(nvec),0.10)
 		camera.CoordinateFrame = campos
 		char:FindFirstChild("Humanoid").WalkSpeed = 0
 		char:FindFirstChild("Humanoid").JumpPower = 0
