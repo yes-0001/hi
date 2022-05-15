@@ -1393,13 +1393,13 @@ ti(cons, mouse.KeyUp:connect(function(key)
 	elseif key == "c" then
 		ed = false
 	elseif key == "a" then
-		rd = true
+		rd = false
 	elseif key == "d" then
-		fd = true
+		fd = false
 	elseif key == "w" then
-		fr = true
+		fr = false
 	elseif key == "s" then
-		r = true
+		r = false
 	end
 end))
 
