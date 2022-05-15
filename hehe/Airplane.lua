@@ -1325,7 +1325,7 @@ ti(cons, mouse.KeyDown:connect(function(key)
 			cMsg("Standby.")
 		end
 	end
-	if key == "x" then
+	if key == "w" then
 		wd = true
 	elseif key == "a" then
 		ad = true
@@ -1337,13 +1337,13 @@ ti(cons, mouse.KeyDown:connect(function(key)
 		qd = true
 	elseif key == "c" then
 		ed = true
-	elseif key == "a" then
+	elseif key == "q" then
 		rd = true
-	elseif key == "d" then
+	elseif key == "e" then
 		fd = true
-	elseif key == "w" then
+	elseif key == "f" then
 		fr = true
-	elseif key == "s" then
+	elseif key == "r" then
 		r = true
 	elseif key == "g" then
 		if fly == false and returnhome == false then
