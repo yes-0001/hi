@@ -1,7 +1,7 @@
 --[[
 
     - Originally Created by Vaeb - https://pastebin.com/u/Vaeb
-	- Quality-Of-Life updates by y e s#0001 - https://discord.gg/cAmPnmYuHW
+	- Quality-Of-Life improvments by y e s#0001 - https://discord.gg/cAmPnmYuHW
 
 ]]
 
