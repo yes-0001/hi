@@ -1301,7 +1301,7 @@ local fsiz = 28
 local tr = true
 local fade = 2
 
-local r = 255
+-- local r = 255
 local b = 0
 local g = 0
 local fr = false
