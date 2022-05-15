@@ -1411,7 +1411,6 @@ ti(cons, mouse.Button1Down:connect(function()
 		mbup = mouse.Button1Up:connect(function()
 			moused = false
             wd = false
-			frm:disconnect()
 			mbup:disconnect()
 		end)
 	end
