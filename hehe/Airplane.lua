@@ -1301,7 +1301,7 @@ local fsiz = 28
 local tr = true
 local fade = 2
 
-local r = 360
+local r = 0
 local b = 0
 local g = 0
 local fr = false
@@ -1329,13 +1329,13 @@ ti(cons, mouse.KeyDown:connect(function(key)
 		wd = true
 	elseif key == "o" then
 		ad = true
-	elseif key == "LeftAlt" then
+	elseif key == "x" then
 		sd = true
 	elseif key == "p" then
 		dd = true
-	elseif key == "x" then
-		qd = true
 	elseif key == "c" then
+		qd = true
+	elseif key == "v" then
 		ed = true
 	elseif key == "a" then
 		rd = true
@@ -1384,13 +1384,13 @@ ti(cons, mouse.KeyUp:connect(function(key)
 		wd = false
 	elseif key == "o" then
 		ad = false
-	elseif key == "LeftAlt" then
+	elseif key == "x" then
 		sd = false
 	elseif key == "p" then
 		dd = false
-	elseif key == "x" then
-		qd = false
 	elseif key == "c" then
+		qd = false
+	elseif key == "v" then
 		ed = false
 	elseif key == "a" then
 		rd = false
@@ -1493,22 +1493,22 @@ ti(cons, game:GetService("RunService").RenderStepped:connect(function()
 			zt = zt - 1
 		end
 		if qd == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(3))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(2))
 		end
 		if ed == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(-3))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(-2))
 		end
 		if rd == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(-3),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(-2),math.rad(0))
 		end
 		if fd == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(3),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(2),math.rad(0))
 		end
 		if fr == true then
-			tCf = tCf * CFrame.Angles(math.rad(3),math.rad(0),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(2),math.rad(0),math.rad(0))
 		end
 		if r == true then
-			tCf = tCf * CFrame.Angles(math.rad(-3),math.rad(0),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(-2),math.rad(0),math.rad(0))
 		end
 		local nvec = Vector3.new(0,2,7)
 		if seat.Occupant ~= nil then
