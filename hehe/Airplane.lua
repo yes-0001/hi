@@ -1452,22 +1452,22 @@ ti(cons, game:GetService("RunService").RenderStepped:connect(function()
 			zt = zt - 1
 		end
 		if qd == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(1))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(2))
 		end
 		if ed == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(-1))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(-2))
 		end
 		if rd == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(-1),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(-2),math.rad(0))
 		end
 		if fd == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(1),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(2),math.rad(0))
 		end
 		if fr == true then
-			tCf = tCf * CFrame.Angles(math.rad(1),math.rad(0),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(2),math.rad(0),math.rad(0))
 		end
 		if r == true then
-			tCf = tCf * CFrame.Angles(math.rad(-1),math.rad(0),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(-2),math.rad(0),math.rad(0))
 		end
 		local nvec = Vector3.new(0,2,7)
 		if seat.Occupant ~= nil then
