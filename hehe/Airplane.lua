@@ -1325,9 +1325,9 @@ ti(cons, mouse.KeyDown:connect(function(key)
 			cMsg("Standby.")
 		end
 	end
-	if key == "e" then
-		wd = true
-	elseif key == "o" then
+	-- if key == "z" then
+	-- 	wd = true
+	if key == "o" then
 		ad = true
 	elseif key == "q" then
 		sd = true
@@ -1380,9 +1380,9 @@ ti(cons, mouse.KeyDown:connect(function(key)
 end))
 
 ti(cons, mouse.KeyUp:connect(function(key)
-	if key == "e" then
-		wd = false
-	elseif key == "o" then
+	-- if key == "z" then
+	-- 	wd = false
+	if key == "o" then
 		ad = false
 	elseif key == "q" then
 		sd = false
@@ -1404,57 +1404,14 @@ ti(cons, mouse.KeyUp:connect(function(key)
 end))
 
 ti(cons, mouse.Button1Down:connect(function()
-	if moused == false and gun == true then
+	if moused == false then
 		moused = true
-		local frms = 0
-		frm = game:GetService("RunService").RenderStepped:connect(function()
-			if math.floor(frms/5) == frms/5 then
-				spawn(function()
-					local ray = Ray.new(o1.Smg.SMGPipeH.CFrame.p,((mouse.Hit.p - o1.Smg.SMGPipeH.CFrame.p).unit*2048) + Vector3.new(math.random(-1000,1000)/50,math.random(-1000,1000)/50,math.random(-1000,1000)/50))
-					local part,pos,normal = game:GetService("Workspace"):FindPartOnRayWithIgnoreList(ray,char:GetChildren(),false,true)
-					local trace = Instance.new("Part")
-					trace.BrickColor = BrickColor.new("New Yeller")
-					trace.Size = Vector3.new(0.2,0.2,(o1.Smg.SMGPipeH.CFrame.p - pos).Magnitude)
-					trace.Anchored = true
-					trace.Material = "Neon"
-					trace.CanCollide = false
-					trace.Parent = game:GetService("Workspace")
-					trace.CFrame = CFrame.new(o1.Smg.SMGPipeH.CFrame.p,pos)*CFrame.new(0,0,-((o1.Smg.SMGPipeH.CFrame.p - pos).Magnitude/2))
-					if PlayAudios then
-    					local s = Instance.new("Sound",o1.Smg.SMGPipeH)
-    					s.SoundId = "rbxassetid://131257506"
-    					s.Volume = 1
-    					s:Play()
-    					spawn(function()
-    						wait(2)
-    						s:Destroy()
-    					end)
-    				end
-					if part then
-						if part.Parent:IsA("Model") then
-							if part.Parent:FindFirstChild("Humanoid") then
-								--damage
-							end
-						elseif part.Parent.Parent:IsA("Model") then
-							if part.Parent.Parent:FindFirstChild("Humanoid") then
-								--damage
-							end
-						end
-					end
+        wd = true
 
-					wait(0.05)
-					trace:Destroy()
-				end)
-			end
-			frms = frms + 1
-		end)
-		ti(cons,frm)
 		mbup = mouse.Button1Up:connect(function()
 			moused = false
-			frm:disconnect()
-			mbup:disconnect()
+            wd = false
 		end)
-		ti(cons, mbup)
 	end
 end))
 
