@@ -17,7 +17,7 @@ for i,v in pairs(getgc(true)) do
     end
 end
 
-local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/NewUI"))();main = lib:Window();
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/UI.lua"))();main = lib:Window();
 CombatW = main:Tab('Combat')
 local FOVCircle = Drawing.new("Circle")
 FOVCircle.Thickness = 2

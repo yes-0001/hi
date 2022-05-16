@@ -16,7 +16,7 @@ else
     DarkHub_Client.SaveSettings = false
 end
 
-local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub_V3/main/UILIB",true))()
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/UI.lua",true))()
 local main = lib:Window()
 local Aimbotz = main:Tab('Aimbot')
 local LP_TAB = main:Tab('LocalPlayer')

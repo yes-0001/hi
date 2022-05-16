@@ -123,7 +123,7 @@ return rawget(self, idx) or game:GetService(idx)
 end
 })
 
-local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub_V3/main/UILIB",true))()
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/UI.lua",true))()
 main = lib:Window()
 Aimbot = main:Tab('Combat')
 LPTab = main:Tab('Character')

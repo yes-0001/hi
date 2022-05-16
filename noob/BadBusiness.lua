@@ -17,7 +17,7 @@ else
 end
 
 
-local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub_V3/main/UILIB",true))()
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/UI.lua",true))()
 main = lib:Window()
 MainWindow = main:Tab('Bad Business')
 Aimbotz = main:Tab('Aimbot')

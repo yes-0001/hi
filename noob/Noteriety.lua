@@ -4,7 +4,7 @@ repeat pcall(function()
     FuncNew = getupvalue(BulletClient,3).new
     RemoteKey = getupvalue(FuncNew,18)
 end) until BulletClient
-local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/NewUI"))()
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/UI.lua"))()
 main = lib:Window()
 
 Client = {

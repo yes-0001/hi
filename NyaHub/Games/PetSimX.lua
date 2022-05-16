@@ -1,6 +1,6 @@
 
 --[[Tabs and Uilib]]--
-local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/NewUI"))()
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/UI.lua"))()
 local main = lib:Window()
 local AutoW = main:Tab("AutoFarm")
 local AutoBuyW = main:Tab("AutoBuy")

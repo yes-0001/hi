@@ -16,7 +16,7 @@ function GiveMoney(Money)
     getsenv(GetScript()).pstats.money = getsenv(GetScript()).pstats.money + Money
     getsenv(GetScript()).gui.Data.Money.Text = getsenv(GetScript()).Comma(getsenv(GetScript()).pstats.money)
 end
-local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub_V3/main/UILIB",true))()
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/UI.lua",true))()
 main = lib:Window()
 MainWindow = main:Tab('Broken Bones 4')
 MainWindow:Button('Give 10000 Money',function()

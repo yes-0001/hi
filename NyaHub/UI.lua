@@ -1,10 +1,10 @@
-if game.CoreGui:FindFirstChild("MarkBeatsIsGay") then
-    game.CoreGui.MarkBeatsIsGay:Destroy()
+if game.CoreGui:FindFirstChild("Nyaaaa_x3") then
+    game.CoreGui.Nyaaaa_x3:Destroy()
 end
 game:GetService("UserInputService").InputBegan:connect(
     function(key, gpe)
         if key.KeyCode == Enum.KeyCode.RightControl then
-            game.CoreGui.MarkBeatsIsGay.Enabled = not game.CoreGui.MarkBeatsIsGay.Enabled
+            game.CoreGui.Nyaaaa_x3.Enabled = not game.CoreGui.Nyaaaa_x3.Enabled
         end
     end
 )

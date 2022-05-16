@@ -4,7 +4,7 @@ Client = {
     }
 }
 
-local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/NewUI"))();main = lib:Window();
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/UI.lua"))();main = lib:Window();
 MainW = main:Tab('AutoFarm')
 MainW:Toggle('Auto Play',function(state)
     Client.Toggles.AutoPlayer = state

@@ -17,7 +17,7 @@ local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 local Mouse = Player:GetMouse()
 
-local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/NewUI"))()
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/UI.lua"))()
 local Window = Lib:Window()
 local Main = Window:Tab('Main')
 local Char = Window:Tab('Character')

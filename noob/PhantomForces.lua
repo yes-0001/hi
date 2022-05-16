@@ -46,7 +46,7 @@ if not IsUpToDate and DarkHub_Client.SavedSettings and isfile('DarkHub/DarkHub_'
     game.Players.LocalPlayer:Kick('DarkHub Settings Out Of Date - Issue Fixed | Restart DarkHub to Continue')
 end
 
-local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub_V3/main/UILIB",true))()
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/UI.lua",true))()
 local main = lib:Window()
 local Aimbot = main:Tab('Aimbot')
 local GunMods = main:Tab('Gun Mods')

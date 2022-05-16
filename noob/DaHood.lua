@@ -88,7 +88,7 @@
                 fireclickdetector(game:GetService("Workspace").Ignored["Clean the shoes on the floor and come to me for cash"].ClickDetector)
             end
         end
-        local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/NewUI"))()
+        local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/UI.lua"))()
         local Window = Lib:Window()
         local Main = Window:Tab('Main')
         local Tps = Window:Tab('Teleports')

@@ -9,7 +9,7 @@
 
         -- // Library 
         
-        local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/NewUI"))()
+        local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/UI.lua"))()
         local Window = Lib:Window()
         local Main = Window:Tab('Main')
         local tps = Window:Tab('Teleports')

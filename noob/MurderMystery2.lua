@@ -53,7 +53,7 @@ local function Tween(part, endpos, speed)
     end
 end
 
-local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Ihaveash0rtnamefordiscord/DarkHUB/main/Lib"))()
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/UI.lua"))()
 main = lib:Window()
 Mainz = main:Tab('Combat')
 Character = main:Tab('Character')

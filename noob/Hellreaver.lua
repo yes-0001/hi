@@ -16,7 +16,7 @@ else
     DarkHub_Client.SaveSettings = false
 end
 
-local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub_V3/main/UILIB"))()
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/yes-0001/hi/main/NyaHub/UI.lua"))()
 main = lib:Window()
 
 IsUpToDate = pcall(function()
