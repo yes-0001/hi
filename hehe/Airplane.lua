@@ -1,11 +1,8 @@
-getgenv().credits = -- decided to release open-source, just credit me if youre gonna use this anywhere please :)
-[[Original script made by quirky anime boy#7003
-Plane Script Made By Capo#0152!
-]]
-
+-- Settings
 local speed = 0.5
 getgenv().SendChatMessages = false -- set to true to say the drone messages in chat (kinda spammy)
 getgenv().PlayAudios = false -- set to true if you want to hear the clientsided sounds
+getgenv().MouseFlight = false -- set to true if you want to control the plane using your mouse instead of keyboard
 
 --[[ Controls:
     T - toggle stand-by mode
@@ -16,17 +13,6 @@ getgenv().PlayAudios = false -- set to true if you want to hear the clientsided 
     QE - rotate left/right
     FC - go up/down
 ]]--
-
-local creditsstring = 
-[[Original script made by quirky anime boy#7003
-Plane Script Made By Capo#0152!
-]]
-
-if not getgenv().credits or getgenv().credits ~= creditsstring then
-    game.Players.LocalPlayer:Kick("Dont remove credits")
-    wait(.5)
-    while true do end
-end
 
 -- requires the amazon prime UFO hat (8151404994)
 
@@ -1309,7 +1295,7 @@ local r = false
 local chatremote = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
 function cMsg(c)
     if SendChatMessages then
-        chatremote:FireServer("[Drone]: " .. c,"All")
+		chatremote:FireServer("[Plane]: " .. c,"All")
     end
 end
 
@@ -1435,6 +1421,15 @@ ti(cons, game:GetService("RunService").RenderStepped:connect(function()
 	soisoi.Pitch = soisoi.Pitch + pChange
 	end
 	if fly == true then
+		-- if MouseFlight == true then
+		-- 	local Root = o1.PrimaryPart.CFrame
+		-- 	local RootPos, MousePos = Root.Position, Mouse.Hit.Position
+		-- 	--o1.PrimaryPart.CFrame = CFrame.new(RootPos, MousePos)
+		-- 	--RootPos = Root * CFrame.Angles(MousePos,0,0)
+		-- 	-- tCf = tCf * CFrame.Angles(MousePos,MousePos,MousePos)
+		-- 	local lookAt = Root:Lerp(MousePos,0.06)
+		-- 	Root = Cframe.Lookat(RootPos, lookAt)
+		-- end
 		if wd == true then
 			tCf = tCf * CFrame.new(0,speed,0)
 			yt = yt + 0
