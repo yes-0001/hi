@@ -1,20 +1,145 @@
 -- Settings
-local speed = 0.5
+getgenv().speed = 0.5 -- default is 0.5 (easiest to control)
+getgenv().turningspeed = 2 -- default is 2 (easiest to control), don't go over 3 if you actually wanna control the plane lol
 getgenv().SendChatMessages = false -- set to true to say the drone messages in chat (kinda spammy)
 getgenv().PlayAudios = false -- set to true if you want to hear the clientsided sounds
-getgenv().MouseFlight = false -- set to true if you want to control the plane using your mouse instead of keyboard
+local MouseFlight = false -- set to true if you want to control the plane using your mouse instead of keyboard
+local fly = false
 
 --[[ Controls:
-    T - toggle stand-by mode
-    G - gun mode, doesnt really do anything
+    G - toggle stand-by mode
     B - toggle control mode
-    UFO controls:
-    WASD - move around
-    QE - rotate left/right
-    FC - go up/down
+    WS - tilt Up/Down
+	AD - roll Left/Right
+	XC - turn Left/Right
+	Z - fly forward
+	E - Fly Backward
+	Scroll - change speed
+
+	mouse flight option coming soon :3
 ]]--
 
--- requires the amazon prime UFO hat (8151404994)
+--[[
+Original script made by quirky anime boy#7003
+Plane Script Made By Capo#0152!
+With extra features by y e s#0001 :3
+]]
+
+--[[
+features y e s#0001 added
+ - Changable Speed using Scroll Wheel
+ - Changed keybinds to make them far easier to learn and use (and more fun)
+ - Changed the turning speed :D
+ - More customizable!!! :3
+]]
+
+-- Instances:
+
+if getgenv().alreadyexecuted then
+	game.CoreGui.AirPlaneGUI:Remove()
+	game.CoreGui.AirPlaneGUI.Speed:Remove()
+	MouseFlightIndicator:Remove()
+end
+
+
+--getgenv().alreadyexecuted = true -- do not change :D
+
+local AirPlaneThing = Instance.new("ScreenGui")
+local SpeedTxt = Instance.new("TextLabel")
+local MouseFlightIndicator = Drawing.new("Circle")
+
+--Properties:
+
+AirPlaneThing.Name = "AirPlaneGUI"
+AirPlaneThing.Parent = game.CoreGui
+AirPlaneThing.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+SpeedTxt.Name = "Speed"
+SpeedTxt.Parent = AirPlaneThing
+SpeedTxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SpeedTxt.BackgroundTransparency = 1.000
+SpeedTxt.Position = UDim2.new(0.865454555, 0, 0.914183557, 0)
+SpeedTxt.Size = UDim2.new(0, 200, 0, 50)
+SpeedTxt.Font = Enum.Font.Gotham
+SpeedTxt.Text = "0.5"
+SpeedTxt.TextColor3 = Color3.fromRGB(255, 255, 255)
+SpeedTxt.TextScaled = true
+SpeedTxt.TextSize = 14.000
+SpeedTxt.TextWrapped = true
+SpeedTxt.TextTransparency = 1
+
+
+local UIS = game:GetService("UserInputService")
+local tween_service = game:GetService("TweenService")
+local plr = game:GetService("Players").LocalPlayer
+local char,mouse = plr.Character,plr:GetMouse()
+
+MouseFlightIndicator.Visible = false
+MouseFlightIndicator.Position = Vector2.new(0.5,0.5)
+MouseFlightIndicator.Color = Color3.fromRGB(44, 44, 44)
+MouseFlightIndicator.Thickness = 2
+MouseFlightIndicator.Transparency = 0.4
+MouseFlightIndicator.NumSides = 144
+MouseFlightIndicator.Radius = 50
+MouseFlightIndicator.Filled = false
+
+
+game:GetService("RunService").RenderStepped:connect(function()
+	if MouseFlight == true then
+		if fly == true then
+			UIS.MouseIconEnabled = false
+			MouseFlightIndicator.Visible = true
+		else
+			UIS.MouseIconEnabled = true
+			MouseFlightIndicator.Visible = false
+		end
+	end
+end)
+
+mouse.Move:Connect(function()
+	if fly == true then
+		if MouseFlight == true then
+			MouseFlightIndicator.Position = Vector2.new(mouse.X, mouse.Y + 35)
+		end
+	end
+end)
+
+local function Tween_Trans(value, speed)
+	local tween_info = TweenInfo.new(speed, Enum.EasingStyle.Exponential, Enum.EasingDirection.Out)
+	local tween = tween_service:Create(SpeedTxt, tween_info, {TextTransparency = value})
+	tween:Play()
+end
+
+function Round(n, decimals)
+	decimals = decimals or 0
+	return math.floor(n * 10^decimals) / 10^decimals
+end
+
+UIS.InputChanged:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseWheel then
+		if fly == true then
+			if input.Position.Z > 0 then
+				-- Mouse Wheel UP
+				speed = speed + 0.1
+				SpeedTxt.Text = Round(speed, 1)
+
+				SpeedTxt.TextTransparency = 0
+				Tween_Trans(1, 1.5)
+			else
+				-- Mouse Wheel Down
+				speed = speed - 0.1
+
+				if speed <= 0 then
+					speed = 0.1
+				end
+				SpeedTxt.Text = Round(speed, 1)
+
+				SpeedTxt.TextTransparency = 0
+				Tween_Trans(1, 1.5)
+			end
+		end
+	end
+end)
 
 local function align(part, parent, p, r)
     local att1 = Instance.new("Attachment",part)
@@ -38,11 +163,8 @@ local function align(part, parent, p, r)
     alo.MaxTorque = 2e14
 end
 
-local plr = game:GetService("Players").LocalPlayer
-local char,mouse = plr.Character,plr:GetMouse()
 local camera = game:GetService("Workspace").CurrentCamera
 local UFO = char:FindFirstChild("Meshes/飞机Accessory")
-local fly = false
 local campos = CFrame.new(0,0,0)
 local cons = {}
 local ti = table.insert
@@ -1417,53 +1539,63 @@ ti(cons, game:GetService("RunService").RenderStepped:connect(function()
 		pspd = -15
 	end
 	if PlayAudios then
-	local pChange = (tPitch - soisoi.Pitch)/10
-	soisoi.Pitch = soisoi.Pitch + pChange
+		local pChange = (tPitch - soisoi.Pitch)/10
+		soisoi.Pitch = soisoi.Pitch + pChange
 	end
 	if fly == true then
-		-- if MouseFlight == true then
-		-- 	local Root = o1.PrimaryPart.CFrame
-		-- 	local RootPos, MousePos = Root.Position, Mouse.Hit.Position
-		-- 	--o1.PrimaryPart.CFrame = CFrame.new(RootPos, MousePos)
-		-- 	--RootPos = Root * CFrame.Angles(MousePos,0,0)
-		-- 	-- tCf = tCf * CFrame.Angles(MousePos,MousePos,MousePos)
-		-- 	local lookAt = Root:Lerp(MousePos,0.06)
-		-- 	Root = Cframe.Lookat(RootPos, lookAt)
-		-- end
 		if wd == true then
 			tCf = tCf * CFrame.new(0,speed,0)
 			yt = yt + 0
 		end
 		if ad == true then
-			tCf = tCf * CFrame.new(-0.5,0,0)
+			tCf = tCf * CFrame.new(-speed,0,0)
 			zt = zt - 1
 		end
 		if sd == true then
-			tCf = tCf * CFrame.new(0,-0.5,0)
+			tCf = tCf * CFrame.new(0,-speed,0)
 			yt = yt - 1
 		end
 		if dd == true then
-			tCf = tCf * CFrame.new(0.5,0,0)
+			tCf = tCf * CFrame.new(speed,0,0)
 			zt = zt - 1
 		end
+		-- if qd == true then
+		-- 	tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(4 * speed))
+		-- end
+		-- if ed == true then
+		-- 	tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(-4 * speed))
+		-- end
+		-- if rd == true then
+		-- 	tCf = tCf * CFrame.Angles(math.rad(0),math.rad(-4 * speed),math.rad(0))
+		-- end
+		-- if fd == true then
+		-- 	tCf = tCf * CFrame.Angles(math.rad(0),math.rad(4 * speed),math.rad(0))
+		-- end
+		-- if fr == true then
+		-- 	tCf = tCf * CFrame.Angles(math.rad(4 * speed),math.rad(0),math.rad(0))
+		-- end
+		-- if r == true then
+		-- 	tCf = tCf * CFrame.Angles(math.rad(-4 * speed),math.rad(0),math.rad(0))
+		-- end
 		if qd == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(2))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(turningspeed))
 		end
 		if ed == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(-2))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(0),math.rad(-turningspeed))
 		end
 		if rd == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(-2),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(-turningspeed),math.rad(0))
 		end
 		if fd == true then
-			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(2),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(0),math.rad(turningspeed),math.rad(0))
 		end
 		if fr == true then
-			tCf = tCf * CFrame.Angles(math.rad(2),math.rad(0),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(turningspeed),math.rad(0),math.rad(0))
 		end
 		if r == true then
-			tCf = tCf * CFrame.Angles(math.rad(-2),math.rad(0),math.rad(0))
+			tCf = tCf * CFrame.Angles(math.rad(-turningspeed),math.rad(0),math.rad(0))
 		end
+
 		local nvec = Vector3.new(0,2,7)
 		if seat.Occupant ~= nil then
 			nvec = Vector3.new(2,4,7)
