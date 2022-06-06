@@ -1,6 +1,6 @@
 -- Settings
-getgenv().speed = 0.5 -- default is 0.5 (easiest to control)
-getgenv().turningspeed = 2 -- default is 2 (easiest to control), don't go over 3 if you actually wanna control the plane lol
+getgenv().speed = 0.15 -- default is 0.15 (easiest to control)
+getgenv().turningspeed = 0.65 -- default is 0.65 (easiest to control), don't go over 2 if you actually wanna control the plane lol
 getgenv().SendChatMessages = false -- set to true to say the drone messages in chat (kinda spammy)
 getgenv().PlayAudios = false -- set to true if you want to hear the clientsided sounds
 local MouseFlight = false -- set to true if you want to control the plane using your mouse instead of keyboard
@@ -121,7 +121,7 @@ UIS.InputChanged:Connect(function(input)
 			if input.Position.Z > 0 then
 				-- Mouse Wheel UP
 				speed = speed + 0.1
-				SpeedTxt.Text = Round(speed, 1)
+				SpeedTxt.Text = Round(speed, 2)
 
 				SpeedTxt.TextTransparency = 0
 				Tween_Trans(1, 1.5)
@@ -130,9 +130,9 @@ UIS.InputChanged:Connect(function(input)
 				speed = speed - 0.1
 
 				if speed <= 0 then
-					speed = 0.1
+					speed = 0.05
 				end
-				SpeedTxt.Text = Round(speed, 1)
+				SpeedTxt.Text = Round(speed, 2)
 
 				SpeedTxt.TextTransparency = 0
 				Tween_Trans(1, 1.5)
