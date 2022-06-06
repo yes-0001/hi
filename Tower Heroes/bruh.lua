@@ -1,6 +1,8 @@
 local Workspace = game:GetService("Workspace")
 
 function CastleTown()
+    
+
     Workspace.CantPlace.Part:Remove()
 
     for _, scr in pairs(Workspace.CantPlace:GetDescendants()) do
